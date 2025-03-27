@@ -12,7 +12,7 @@
   </v-card>
 
   <div>
-    <v-card v-if="isChatOpen" class="chat-widget" width="400" style="position: fixed; bottom: 80px; left: 20px; max-height: 400px; overflow-y: auto; z-index: 2000; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+    <v-card v-if="isChatOpen" class="chat-widget" width="500" style="position: fixed; bottom: 80px; left: 20px; z-index: 2000; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1)">
       <v-toolbar color="primary" dark>
         <v-toolbar-title>SCTC BOT</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -22,7 +22,7 @@
       </v-toolbar>
 
       <v-card-text>
-        <div class="chat-messages" style="max-height: 300px; overflow-y: auto; padding: 10px;">
+        <div class="chat-messages" style="max-height: 400px; overflow-y: auto; padding: 10px;">
           <div v-for="(message, index) in messages" :key="index" class="message" :class="{'user-message': message.role === 'user', 'bot-message': message.role === 'bot'}">
 
             <div>
@@ -34,6 +34,9 @@
             {{message_loader ? 'Bot is typing...' : ''}}
           </div>
         </div>
+       
+      </v-card-text>
+      <div class="pa-2">
         <v-text-field
           v-model="user_input"
           placeholder="Type a message..."
@@ -43,7 +46,8 @@
           dense
           class="mt-2"
         ></v-text-field>
-      </v-card-text>
+      </div>
+       
     </v-card>
 
     <div style="position: fixed; bottom: 20px; left: 20px;" class="d-print-none">
@@ -122,7 +126,18 @@ const isChatOpen = ref(false)
 
 // For Chat Bot
 const user_input = ref('')
-const messages = ref([])
+const messages = ref([
+  {
+    content: "SCTC, or Southern Convergence Technologies Corporation, is a company specializing in creating customized, cutting-edge software products. They focus on enhancing productivity and efficiency for their clients and provide solutions tailored to meet their specific needs. The company houses a team of skilled professionals committed to delivering exceptional software solutions and firmly believe in the transformative power of technology to drive business success. They aim to empower their clients to realize their full potential.",
+    type: 'bot',
+    role: 'assistant'
+  },
+  {
+    content: "SCTC, or Southern Convergence Technologies Corporation, is a company specializing in creating customized, cutting-edge software products. They focus on enhancing productivity and efficiency for their clients and provide solutions tailored to meet their specific needs. The company houses a team of skilled professionals committed to delivering exceptional software solutions and firmly believe in the transformative power of technology to drive business success. They aim to empower their clients to realize their full potential.",
+    type: 'bot',
+    role: 'assistant'
+  }
+])
 const message_loader = ref(true)
 async function sendMessage(){
   if (user_input.value.trim() === '') return;
