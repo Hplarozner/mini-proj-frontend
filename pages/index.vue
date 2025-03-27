@@ -126,18 +126,7 @@ const isChatOpen = ref(false)
 
 // For Chat Bot
 const user_input = ref('')
-const messages = ref([
-  {
-    content: "SCTC, or Southern Convergence Technologies Corporation, is a company specializing in creating customized, cutting-edge software products. They focus on enhancing productivity and efficiency for their clients and provide solutions tailored to meet their specific needs. The company houses a team of skilled professionals committed to delivering exceptional software solutions and firmly believe in the transformative power of technology to drive business success. They aim to empower their clients to realize their full potential.",
-    type: 'bot',
-    role: 'assistant'
-  },
-  {
-    content: "SCTC, or Southern Convergence Technologies Corporation, is a company specializing in creating customized, cutting-edge software products. They focus on enhancing productivity and efficiency for their clients and provide solutions tailored to meet their specific needs. The company houses a team of skilled professionals committed to delivering exceptional software solutions and firmly believe in the transformative power of technology to drive business success. They aim to empower their clients to realize their full potential.",
-    type: 'bot',
-    role: 'assistant'
-  }
-])
+const messages = ref([])
 const message_loader = ref(true)
 async function sendMessage(){
   if (user_input.value.trim() === '') return;
