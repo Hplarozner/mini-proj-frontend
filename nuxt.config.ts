@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify'], // Ensure Vuetify is transpiled
   },
   plugins: [
-    './plugins/vuetify.ts', // Ensure this path is correct
+    '~/plugins/vuetify.ts', // Ensure this path is correct
   ],
   runtimeConfig: {
     public: {
