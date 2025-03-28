@@ -18,6 +18,10 @@ export default defineNuxtConfig({
       }
     }
   },
+  plugins: [
+    "~/plugins/vuetify.ts",
+  ],
+
   runtimeConfig: {
     public: {
       PROD: process.env.PROD,
