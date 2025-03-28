@@ -11,7 +11,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       ...components,
       ...labs,
     },
-
+    
     display: {
       mobileBreakpoint: "sm"
     },
