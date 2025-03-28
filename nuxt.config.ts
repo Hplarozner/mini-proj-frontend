@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: [
-    'vuetify/styles', // ✅ Correct for Vuetify 3
+    'vuetify/styles',
     "@mdi/font/css/materialdesignicons.css",
   ],
   build: {
@@ -14,5 +14,10 @@ export default defineNuxtConfig({
       DOMAIN   : process.env.DOMAIN,
       PROD     : process.env.PROD
     }
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['vuetify'],
+    },
   }
 })
