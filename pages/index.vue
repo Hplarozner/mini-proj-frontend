@@ -94,8 +94,8 @@ onBeforeMount(async () => {
 })
 
 const config = computed(() => {
-  const {  NODE_ENV, DOMAIN, PROD } = cfg.public;
-  return NODE_ENV === 'development' ? DOMAIN : PROD
+  const {  NODE_ENV, DOMAIN, URL } = cfg.public;
+  return NODE_ENV === 'development' ? DOMAIN : URL
 })
 
 

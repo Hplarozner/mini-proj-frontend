@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      PROD: process.env.PROD,
+      URL: process.env.URL,
       DOMAIN: process.env.DOMAIN,
       NODE_ENV: process.env.NODE_ENV,
     },
