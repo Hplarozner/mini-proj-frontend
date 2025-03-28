@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-03-28',
   devtools: { enabled: true },
   css: [
-    'vuetify/styles/main.sass', // Ensure this path is correct
+    'vuetify/lib/styles/main.sass', // Ensure this path is correct
     "@mdi/font/css/materialdesignicons.css",
   ],
   build: {
