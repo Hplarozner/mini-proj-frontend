@@ -4,18 +4,25 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-03-28',
   devtools: { enabled: true },
   css: [
-    'vuetify/lib/styles/main.sass',
+    'vuetify/styles/main.sass', // Ensure this path is correct
     "@mdi/font/css/materialdesignicons.css",
   ],
   build: {
-    transpile: ['vuetify']
+    transpile: ['vuetify'],
+  },
+  vite: {
+    // Add Vite-specific configuration here
+    build: {
+      rollupOptions: {
+        external: ['vuetify/lib/styles/main.sass'] // Externalize if necessary
+      }
+    }
   },
   runtimeConfig: {
     public: {
       PROD: process.env.PROD,
       DOMAIN: process.env.DOMAIN,
       NODE_ENV: process.env.NODE_ENV,
-
     },
   }
 })
