@@ -9,4 +9,12 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify']
   },
+  runtimeConfig: {
+    public: {
+      NODE_ENV : process.env.NODE_ENV,
+      DOMAIN   : process.env.DOMAIN,
+      PROD     : process.env.PROD
+    }
+    
+  }
 })

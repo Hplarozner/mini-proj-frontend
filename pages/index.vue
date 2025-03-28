@@ -84,12 +84,18 @@
 </template>
 
 <script setup lang="ts">
+const cfg = useRuntimeConfig();
 
 onBeforeMount(async () => {
-  const response = await $fetch('http://localhost:3001/roles', {
+  const response = await $fetch(`${config.value}/roles`, {
     method: 'GET',
   })
   return items.value = response.data
+})
+
+const config = computed(() => {
+  const {  NODE_ENV, DOMAIN, PROD } = cfg.public;
+  return NODE_ENV === 'development' ? DOMAIN : PROD
 })
 
 
@@ -111,7 +117,7 @@ const role_data = ref({
   description: ''
 })
 async function set_role(){
-  const {data, error} = await $fetch('http://localhost:3001/roles', {
+  const {data, error} = await $fetch(`${config.value}/roles`, {
     method: 'POST',
     body: {
       name: role_data.value.name,
@@ -132,7 +138,7 @@ async function sendMessage(){
   if (user_input.value.trim() === '') return;
 
   messages.value.push({ content: user_input.value, type: 'user', role: 'user' });
-  const response = await $fetch('http://localhost:3001/chat', {
+  const response = await $fetch(`${config.value}/chat`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
