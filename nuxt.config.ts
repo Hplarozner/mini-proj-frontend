@@ -1,5 +1,6 @@
 // nuxt.config.ts
 import vuetify from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: '2025-03-28',
